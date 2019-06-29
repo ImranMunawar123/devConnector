@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 const config = require("config");
 const db = config.get("mongoURI");
 
+const excelRead = require("../location");
+
 const connectDB = async () => {
   try {
     await mongoose.connect(db, {
@@ -11,6 +13,9 @@ const connectDB = async () => {
     });
 
     console.log("MongoDB connected ...");
+
+    //import Files
+    // excelRead();
   } catch (error) {
     console.error(error.message);
     //Exit process
